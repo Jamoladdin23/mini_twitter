@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="py-5 text-center container">
+    <div class="row py-lg-5">
+        <div class="col-lg-8 mx-auto">
+            <h1 class="fw-light">{{ title }}</h1>
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            {% for comm in comments %}
+
+            <div class="col-md-6">
+<!--                <div class="card shadow-sm">-->
+                    <div class="card-body">
+                        <p class="card-text">user: {{ comm.user }}</p>
+                        <p class="card-text">content: {{ comm.content }}</p>
+
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-sm btn-outline-secondary"><i
+                                    class="bi bi-arrow-through-heart">like</i></button>
+                            <button type="button" class="btn btn-warning"
+                                    onclick="location.href='{% url 'add_comment' %}'">comment
+                            </button>
+
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
+
+
+    <!--<section class="py-5 text-center container">-->
+    <!--    <div class="row py-lg-5">-->
+    <!--      <div class="col-lg-6 col-md-8 mx-auto">-->
+    <!--        <h1 class="fw-light">{{TITLE}}</h1>-->
+
+    <!--      </div>-->
+    <!--    </div>-->
+    <!--</section>-->
+    <!--    <div class="album py-5 bg-light">-->
+    <!--    <div class="container">-->
+
+    <!--        <div class="row">-->
+    <!--            <div class="col-md-3">-->
+    <!--                <h1>Comment of:</h1>-->
+
+    <!--            </div>-->
+
+    <!--            <div class="col-md-9">-->
+    <!--                <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">-->
+
+    <!--                    {% for post in comment %}-->
+    <!--                    <div class="col">-->
+    <!--                        <div class="card shadow-sm">-->
+    <!--                            <div class="card-body">-->
+    <!--&lt;!&ndash;                                <p class="card-text">USER: {{ post.user }}</p>&ndash;&gt;-->
+    <!--                                <p class="card-text">TITLE: {{ post.title }}</p>-->
+    <!--                                <p class="card-text">CONTENT: {{ post.content }}</p>-->
+    <!--                                <p class="card-text">CREATED: {{ post.created_ad }}</p>-->
+
+    <!--&lt;!&ndash;                                <div class="d-flex justify-content-between align-items-center">&ndash;&gt;-->
+    <!--&lt;!&ndash;                                    &lt;!&ndash; Тут можуть бути дії, пов'язані з автором &ndash;&gt;&ndash;&gt;-->
+    <!--&lt;!&ndash;                                </div>&ndash;&gt;-->
+    <!--                            </div>-->
+    <!--                        </div>-->
+    <!--                    </div>-->
+    <!--                    {% endfor %}-->
+    <!--                </div>-->
+    <!--                <nav aria-label="Page navigation example">-->
+    <!--                  <ul class="pagination">-->
+    <!--                    {% if page_obj.has_previous %}-->
+    <!--                        <li class="page-item">-->
+    <!--                            <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">-->
+    <!--                                <span aria-hidden="true">&laquo;</span>-->
+    <!--                            </a>-->
+
+    <!--                    {% endif %}-->
+
+    <!--                    {% for i in page_obj.paginator.page_range %}-->
+    <!--                        {% if page_obj.number == i %}-->
+    <!--                            <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>-->
+    <!--                        {% else %}-->
+    <!--                            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>-->
+    <!--                        {% endif %}-->
+    <!--                    {% endfor %}-->
+
+    <!--                    {% if page_obj.has_next %}-->
+    <!--                        <li class="page-item">-->
+    <!--                            <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">-->
+    <!--                                <span aria-hidden="true">&raquo;</span>-->
+    <!--                            </a>-->
+    <!--                        </li>-->
+    <!--                    {% else %}-->
+    <!--                        <li class="page-item disabled">-->
+    <!--                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">&raquo;</a>-->
+    <!--                        </li>-->
+    <!--                    {% endif %}-->
+    <!--                  </ul>-->
+    <!--                </nav>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <!--</div>-->
